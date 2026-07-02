@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: Order_service
+
+  datasource:
+    url: jdbc:mysql://localhost:3306/retaildatabase
+
+    username: root
+    password: root
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update   # create | create-drop | validate | none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+
+  sql:
+    init:
+      mode: never
+
+server:
+  port: 8080
+
+logging:
+  file:
+    name: logs/order_service.log
+
+  level:
+    root: INFO
+    com.example: DEBUG
+
+  pattern:
+    file: "%d{yyyy-MM-dd HH:mm:ss} %-5level %logger{36} - %msg%n"
+
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
