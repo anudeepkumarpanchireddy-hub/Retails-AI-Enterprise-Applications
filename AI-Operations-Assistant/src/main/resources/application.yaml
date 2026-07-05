@@ -1,0 +1,31 @@
+spring:
+  application:
+    name: AI-Operations-Assistant
+  main:
+    web-application-type: none
+    banner-mode: OFF
+  ai:
+    mcp:
+      server:
+        stdio: true
+        type: SYNC
+        name: AI-Operations-Assistant-MCP-Server
+        version: 1.0.0
+
+
+logging:
+  file:
+    name: logs/mcp.log
+
+  level:
+    root: OFF
+
+server:
+  port: 9090
+
+services:
+  order:
+    url: http://localhost:8080
+
+  inventory:
+    url: http://localhost:8081

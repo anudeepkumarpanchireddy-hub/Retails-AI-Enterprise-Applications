@@ -1,0 +1,40 @@
+2026-07-04 17:56:54.023 INFO  [main] c.R.A.AiOperationsAssistantApplication - Starting AiOperationsAssistantApplication using Java 21.0.7 with PID 8948 (/Users/anudeepkumar/Documents/AI-Operations-Assistant/build/classes/java/main started by anudeepkumar in /Users/anudeepkumar/Documents/AI-Operations-Assistant)
+2026-07-04 17:56:54.024 INFO  [main] c.R.A.AiOperationsAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-04 17:56:54.561 INFO  [main] o.s.a.m.s.a.McpServerAutoConfiguration - Enable tools capabilities, notification: true
+2026-07-04 17:56:54.562 INFO  [main] o.s.a.m.s.a.McpServerAutoConfiguration - Registered tools: 1
+2026-07-04 17:56:54.562 INFO  [main] o.s.a.m.s.a.McpServerAutoConfiguration - Enable resources capabilities, notification: true
+2026-07-04 17:56:54.562 INFO  [main] o.s.a.m.s.a.McpServerAutoConfiguration - Enable prompts capabilities, notification: true
+2026-07-04 17:56:54.563 INFO  [main] o.s.a.m.s.a.McpServerAutoConfiguration - Enable completions capabilities
+2026-07-04 17:56:54.700 INFO  [main] c.R.A.AiOperationsAssistantApplication - Started AiOperationsAssistantApplication in 0.862 seconds (process running for 0.997)
+2026-07-04 18:32:30.603 INFO  [Test worker] c.R.A.AiOperationsAssistantApplicationTests - Starting AiOperationsAssistantApplicationTests using Java 21.0.7 with PID 1964 (started by anudeepkumar in /Users/anudeepkumar/Documents/AI-Operations-Assistant)
+2026-07-04 18:32:30.604 INFO  [Test worker] c.R.A.AiOperationsAssistantApplicationTests - No active profile set, falling back to 1 default profile: "default"
+2026-07-04 18:32:30.969 INFO  [Test worker] o.s.a.m.s.a.McpServerAutoConfiguration - Enable tools capabilities, notification: true
+2026-07-04 18:32:30.969 INFO  [Test worker] o.s.a.m.s.a.McpServerAutoConfiguration - Registered tools: 1
+2026-07-04 18:32:30.969 INFO  [Test worker] o.s.a.m.s.a.McpServerAutoConfiguration - Enable resources capabilities, notification: true
+2026-07-04 18:32:30.969 INFO  [Test worker] o.s.a.m.s.a.McpServerAutoConfiguration - Enable prompts capabilities, notification: true
+2026-07-04 18:32:30.969 INFO  [Test worker] o.s.a.m.s.a.McpServerAutoConfiguration - Enable completions capabilities
+2026-07-04 18:32:31.074 INFO  [Test worker] c.R.A.AiOperationsAssistantApplicationTests - Started AiOperationsAssistantApplicationTests in 0.593 seconds (process running for 0.927)
+2026-07-04 18:32:35.158 INFO  [main] c.R.A.AiOperationsAssistantApplication - Starting AiOperationsAssistantApplication using Java 21.0.7 with PID 1969 (/Users/anudeepkumar/Documents/AI-Operations-Assistant/build/classes/java/main started by anudeepkumar in /Users/anudeepkumar/Documents/AI-Operations-Assistant)
+2026-07-04 18:32:35.159 INFO  [main] c.R.A.AiOperationsAssistantApplication - No active profile set, falling back to 1 default profile: "default"
+2026-07-04 18:32:35.605 INFO  [main] o.s.a.m.s.a.McpServerAutoConfiguration - Enable tools capabilities, notification: true
+2026-07-04 18:32:35.605 INFO  [main] o.s.a.m.s.a.McpServerAutoConfiguration - Registered tools: 1
+2026-07-04 18:32:35.605 INFO  [main] o.s.a.m.s.a.McpServerAutoConfiguration - Enable resources capabilities, notification: true
+2026-07-04 18:32:35.606 INFO  [main] o.s.a.m.s.a.McpServerAutoConfiguration - Enable prompts capabilities, notification: true
+2026-07-04 18:32:35.606 INFO  [main] o.s.a.m.s.a.McpServerAutoConfiguration - Enable completions capabilities
+2026-07-04 18:32:35.732 INFO  [main] c.R.A.AiOperationsAssistantApplication - Started AiOperationsAssistantApplication in 0.761 seconds (process running for 0.881)
+2026-07-04T18:33:26.706-04:00  INFO 2038 --- [AI-Operations-Assistant] [Test worker] .A.AiOperationsAssistantApplicationTests : Starting AiOperationsAssistantApplicationTests using Java 21.0.7 with PID 2038 (started by anudeepkumar in /Users/anudeepkumar/Documents/AI-Operations-Assistant)
+2026-07-04T18:33:26.707-04:00  INFO 2038 --- [AI-Operations-Assistant] [Test worker] .A.AiOperationsAssistantApplicationTests : No active profile set, falling back to 1 default profile: "default"
+2026-07-04T18:33:27.100-04:00  INFO 2038 --- [AI-Operations-Assistant] [Test worker] o.s.a.m.s.a.McpServerAutoConfiguration   : Enable tools capabilities, notification: true
+2026-07-04T18:33:27.100-04:00  INFO 2038 --- [AI-Operations-Assistant] [Test worker] o.s.a.m.s.a.McpServerAutoConfiguration   : Registered tools: 1
+2026-07-04T18:33:27.100-04:00  INFO 2038 --- [AI-Operations-Assistant] [Test worker] o.s.a.m.s.a.McpServerAutoConfiguration   : Enable resources capabilities, notification: true
+2026-07-04T18:33:27.100-04:00  INFO 2038 --- [AI-Operations-Assistant] [Test worker] o.s.a.m.s.a.McpServerAutoConfiguration   : Enable prompts capabilities, notification: true
+2026-07-04T18:33:27.101-04:00  INFO 2038 --- [AI-Operations-Assistant] [Test worker] o.s.a.m.s.a.McpServerAutoConfiguration   : Enable completions capabilities
+2026-07-04T18:33:27.209-04:00  INFO 2038 --- [AI-Operations-Assistant] [Test worker] .A.AiOperationsAssistantApplicationTests : Started AiOperationsAssistantApplicationTests in 0.602 seconds (process running for 0.994)
+2026-07-04T18:33:31.741-04:00  INFO 2045 --- [AI-Operations-Assistant] [main] c.R.A.AiOperationsAssistantApplication   : Starting AiOperationsAssistantApplication using Java 21.0.7 with PID 2045 (/Users/anudeepkumar/Documents/AI-Operations-Assistant/build/classes/java/main started by anudeepkumar in /Users/anudeepkumar/Documents/AI-Operations-Assistant)
+2026-07-04T18:33:31.742-04:00  INFO 2045 --- [AI-Operations-Assistant] [main] c.R.A.AiOperationsAssistantApplication   : No active profile set, falling back to 1 default profile: "default"
+2026-07-04T18:33:32.163-04:00  INFO 2045 --- [AI-Operations-Assistant] [main] o.s.a.m.s.a.McpServerAutoConfiguration   : Enable tools capabilities, notification: true
+2026-07-04T18:33:32.164-04:00  INFO 2045 --- [AI-Operations-Assistant] [main] o.s.a.m.s.a.McpServerAutoConfiguration   : Registered tools: 1
+2026-07-04T18:33:32.164-04:00  INFO 2045 --- [AI-Operations-Assistant] [main] o.s.a.m.s.a.McpServerAutoConfiguration   : Enable resources capabilities, notification: true
+2026-07-04T18:33:32.164-04:00  INFO 2045 --- [AI-Operations-Assistant] [main] o.s.a.m.s.a.McpServerAutoConfiguration   : Enable prompts capabilities, notification: true
+2026-07-04T18:33:32.164-04:00  INFO 2045 --- [AI-Operations-Assistant] [main] o.s.a.m.s.a.McpServerAutoConfiguration   : Enable completions capabilities
+2026-07-04T18:33:32.276-04:00  INFO 2045 --- [AI-Operations-Assistant] [main] c.R.A.AiOperationsAssistantApplication   : Started AiOperationsAssistantApplication in 0.707 seconds (process running for 0.828)
