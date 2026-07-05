@@ -1,5 +1,6 @@
 package com.Retail.Order_service.Controller;
 
+import com.Retail.Order_service.DTO.FailedOrderAnalysis;
 import com.Retail.Order_service.Entity.Order;
 import com.Retail.Order_service.Entity.OrderStatus;
 import com.Retail.Order_service.Service.OrderService;
@@ -9,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 @RestController
@@ -33,9 +35,9 @@ public class OrderController {
      * Get Order by Id
      * GET /orders/{id}
      */
-    @GetMapping("/{id}")
-    public ResponseEntity<Order> getOrderById(@PathVariable Long productId) {
-        return ResponseEntity.ok(orderService.getOrderByOrderId(productId));
+    @GetMapping("/{orderId}")
+    public ResponseEntity<Order> getOrderById(@PathVariable Long orderId) {
+        return ResponseEntity.ok(orderService.getOrderByOrderId(orderId));
     }
 
     /**
@@ -90,6 +92,18 @@ public class OrderController {
         return ResponseEntity.ok(orderService.getTodaysOrders());
     }
 
+    @GetMapping("/failed/today")
+    public List<Order> getTodaysFailedOrders() {
+        return orderService.getTodaysFailedOrders();
+    }
+
+    @GetMapping("/failed/date")
+    public List<Order> getFailedOrdersByDate(
+            @RequestParam LocalDate date) {
+
+        return orderService.getFailedOrdersByDate(date);
+    }
+
     /**
      * Orders by Customer
      * GET /orders/customer/{customerId}
@@ -119,5 +133,12 @@ public class OrderController {
     @GetMapping("/revenue")
     public ResponseEntity<BigDecimal> getRevenue() {
         return ResponseEntity.ok(orderService.getRevenue());
+    }
+
+    @GetMapping("/failed/{orderId}/analysis")
+    public FailedOrderAnalysis analyzeFailedOrder(
+            @PathVariable Long orderId) {
+
+        return orderService.analyzeFailedOrder(orderId);
     }
 }

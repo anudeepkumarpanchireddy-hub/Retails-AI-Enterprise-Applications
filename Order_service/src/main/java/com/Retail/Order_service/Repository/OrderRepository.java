@@ -41,4 +41,11 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
             WHERE o.status = 'DELIVERED'
             """)
     BigDecimal getTotalRevenue();
+
+
+    List<Order> findByStatusAndOrderDateBetween(
+            OrderStatus status,
+            LocalDateTime start,
+            LocalDateTime end
+    );
 }

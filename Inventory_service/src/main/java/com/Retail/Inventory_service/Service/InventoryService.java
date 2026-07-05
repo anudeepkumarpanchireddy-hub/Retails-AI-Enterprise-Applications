@@ -14,6 +14,8 @@ public interface InventoryService {
 
     List<Inventory> getAllInventory();
 
+    List<Inventory> getLowStockProducts(Integer threshold);
+
     Inventory updateInventory(Long productId, Integer quantity);
 
     Inventory addToInventory(Long productId, Inventory inventory, Integer quantity);

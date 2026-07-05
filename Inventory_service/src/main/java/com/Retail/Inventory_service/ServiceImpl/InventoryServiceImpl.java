@@ -33,6 +33,17 @@ public class InventoryServiceImpl implements InventoryService {
         return repository.findAll();
     }
 
+    @Override
+    public List<Inventory> getLowStockProducts(Integer threshold) {
+
+        return repository.findAll()
+                .stream()
+                .filter(item ->
+                        (item.getAvailableQuantity() - item.getReservedQuantity())
+                                <= threshold)
+                .toList();
+    }
+
 
     @Override
     public Inventory updateInventory(Long productId, Integer orderQuantity) {

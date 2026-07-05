@@ -31,6 +31,13 @@ public class InventoryController {
         return inventoryService.getAllInventory();
     }
 
+    @GetMapping("/low-stock")
+    public List<Inventory> getLowStockProducts(
+            @RequestParam(defaultValue = "10") Integer threshold) {
+
+        return inventoryService.getLowStockProducts(threshold);
+    }
+
     @PutMapping("/{productId}/{quantity}")
     public Inventory updateInventory(
             @PathVariable Long productId,

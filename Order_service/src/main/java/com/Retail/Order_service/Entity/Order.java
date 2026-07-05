@@ -44,6 +44,9 @@ public class Order {
     @Column(nullable = false, updatable = false)
     private LocalDateTime orderDate;
 
+    @Column(length = 500)
+    private String failureReason;
+
     @PrePersist
     public void prePersist() {
         this.orderDate = LocalDateTime.now();

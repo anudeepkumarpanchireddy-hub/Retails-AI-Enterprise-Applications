@@ -16,5 +16,7 @@ public interface InventoryRepository extends JpaRepository<Inventory, Long> {
 
     List<Inventory> findByProductNameContainingIgnoreCase(String productName);
 
+    List<Inventory> findByAvailableQuantityLessThanEqual(Integer threshold);
+
 
 }

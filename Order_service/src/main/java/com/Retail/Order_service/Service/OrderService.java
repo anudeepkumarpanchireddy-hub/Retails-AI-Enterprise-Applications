@@ -1,9 +1,11 @@
 package com.Retail.Order_service.Service;
 
+import com.Retail.Order_service.DTO.FailedOrderAnalysis;
 import com.Retail.Order_service.Entity.Order;
 import com.Retail.Order_service.Entity.OrderStatus;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 import java.util.List;
 
 public interface OrderService {
@@ -28,4 +30,10 @@ public interface OrderService {
     List<Order> getOrdersByStatus(OrderStatus status);
 
     BigDecimal getRevenue();
+
+    List<Order> getTodaysFailedOrders();
+
+    List<Order> getFailedOrdersByDate(LocalDate date);
+
+    FailedOrderAnalysis analyzeFailedOrder(Long orderId);
 }

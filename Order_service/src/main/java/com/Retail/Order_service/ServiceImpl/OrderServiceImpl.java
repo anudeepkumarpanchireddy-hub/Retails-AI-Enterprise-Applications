@@ -1,5 +1,6 @@
 package com.Retail.Order_service.ServiceImpl;
 
+import com.Retail.Order_service.DTO.FailedOrderAnalysis;
 import com.Retail.Order_service.Entity.*;
 import com.Retail.Order_service.ExternalUrl.InventoryClient;
 import com.Retail.Order_service.ExternalUrl.PaymentClient;
@@ -44,8 +45,16 @@ public class OrderServiceImpl implements OrderService {
         Inventory inventory = inventoryClient.getInventory(order.getProductId());
         inventoryClient.updateInventory(order.getProductId(), order.getQuantity());
 
-        if (inventory == null || inventory.getAvailableQuantity() < order.getQuantity()) {
-            throw new RuntimeException("Insufficient inventory");
+        if (inventory == null) {
+            order.setStatus(OrderStatus.FAILED);
+            order.setFailureReason("Inventory record not found.");
+            return orderRepository.save(order);
+        }
+
+        if (inventory.getAvailableQuantity() < order.getQuantity()) {
+            order.setStatus(OrderStatus.FAILED);
+            order.setFailureReason("Insufficient inventory.");
+            return orderRepository.save(order);
         }
 
         order.setOrderId(generateOrderId());
@@ -70,10 +79,11 @@ public class OrderServiceImpl implements OrderService {
 
             order.setStatus(OrderStatus.CONFIRMED);
 
-        } catch (Exception e) {
+        } catch (Exception ex) {
 
             payment.setPaymentStatus(PaymentStatus.FAILED);
             order.setStatus(OrderStatus.FAILED);
+            order.setFailureReason(ex.getMessage());
 
         }
         return orderRepository.save(order);
@@ -178,5 +188,70 @@ public class OrderServiceImpl implements OrderService {
     @Override
     public BigDecimal getRevenue() {
         return orderRepository.getTotalRevenue();
+    }
+
+    @Override
+    public List<Order> getTodaysFailedOrders() {
+
+        LocalDateTime start = LocalDate.now().atStartOfDay();
+        LocalDateTime end = LocalDate.now().atTime(23, 59, 59);
+
+        return orderRepository.findByStatusAndOrderDateBetween(
+                OrderStatus.FAILED,
+                start,
+                end
+        );
+    }
+
+    @Override
+    public List<Order> getFailedOrdersByDate(LocalDate date) {
+
+        LocalDateTime start = date.atStartOfDay();
+        LocalDateTime end = date.atTime(23, 59, 59);
+
+        return orderRepository.findByStatusAndOrderDateBetween(
+                OrderStatus.FAILED,
+                start,
+                end
+        );
+    }
+
+    public FailedOrderAnalysis analyzeFailedOrder(Long orderId) {
+
+        Order order = getOrderByOrderId(orderId);
+
+        if (order.getStatus() != OrderStatus.FAILED) {
+
+            return FailedOrderAnalysis.builder()
+                    .orderId(orderId)
+                    .status(order.getStatus().name())
+                    .rootCause("Order is not failed.")
+                    .recommendation("No action required.")
+                    .build();
+        }
+
+        String recommendation;
+
+        switch (order.getFailureReason()) {
+
+            case "User authentication failed." ->
+                    recommendation = "Ask the customer to login again.";
+
+            case "Insufficient inventory." ->
+                    recommendation = "Restock inventory or reduce quantity.";
+
+            case "Inventory record not found." ->
+                    recommendation = "Verify inventory service data.";
+
+            default ->
+                    recommendation = "Retry order or inspect application logs.";
+        }
+
+        return FailedOrderAnalysis.builder()
+                .orderId(order.getOrderId())
+                .status(order.getStatus().name())
+                .rootCause(order.getFailureReason())
+                .recommendation(recommendation)
+                .build();
     }
 }
